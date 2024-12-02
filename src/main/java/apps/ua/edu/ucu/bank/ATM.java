@@ -3,11 +3,12 @@ package apps.ua.edu.ucu.bank;
 import lombok.Getter;
 
 public class ATM {
-    private final Banknote firstTray;
 
     static final int FIRST_NOTE = 100;
     static final int SECOND_NOTE = 50;
     static final int THIRD_NOTE = 5;
+
+    private final Banknote firstTray;
 
     @Getter
     private int budget;

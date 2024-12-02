@@ -26,10 +26,12 @@ public class ATMTest {
 
     @Test
     public void testProcessInvalidAmount() {
-        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+        Exception exception = Assertions.
+        assertThrows(IllegalArgumentException.class, () -> {
             atm.process(INVALID_AMOUNT);
         });
-        Assertions.assertEquals("ATM doesn't have enough money", exception.getMessage());
+        Assertions.
+        assertEquals("ATM doesn't have enough money", exception.getMessage());
     }
 
     @Test

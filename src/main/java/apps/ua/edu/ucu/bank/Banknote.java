@@ -29,7 +29,8 @@ public class Banknote {
         }
 
         if (quantity != 0) {
-            System.out.println("Number of " + banknoteNominale + "-notes: " + quantity);
+            System.out.
+            println("Number of " + banknoteNominale + "-notes: " + quantity);
         }
 
     }

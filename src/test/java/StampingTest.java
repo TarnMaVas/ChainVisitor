@@ -45,8 +45,10 @@ public class StampingTest {
 
         group.apply();
 
-        Assertions.assertEquals(group.getGroupId(), firstSignature.getGroupId());
-        Assertions.assertEquals(group.getGroupId(), secondSignature.getGroupId());
+        Assertions.
+            assertEquals(group.getGroupId(), firstSignature.getGroupId());
+        Assertions.
+            assertEquals(group.getGroupId(), secondSignature.getGroupId());
     }
 
     @Test
