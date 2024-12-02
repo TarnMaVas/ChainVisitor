@@ -10,18 +10,16 @@ public class ATMTest {
     private static final int EXACT_AMOUNT = 1000;
     private static final int EXPECTED_REMAINING_BUDGET = 795;
 
-    private ATM atm;
+    private ATM atm = new ATM(INITIAL_BUDGET);
 
     @Test
     public void testProcessValidAmount() {
-        atm = new ATM(INITIAL_BUDGET);
         atm.process(VALID_AMOUNT);
         Assertions.assertEquals(EXPECTED_REMAINING_BUDGET, atm.getBudget());
     }
 
     @Test
     public void testProcessInvalidAmount() {
-        atm = new ATM(INITIAL_BUDGET);
         Exception exception = Assertions.
         assertThrows(IllegalArgumentException.class, () -> {
             atm.process(INVALID_AMOUNT);
@@ -32,7 +30,6 @@ public class ATMTest {
 
     @Test
     public void testProcessExactAmount() {
-        atm = new ATM(INITIAL_BUDGET);
         atm.process(EXACT_AMOUNT);
         Assertions.assertEquals(0, atm.getBudget());
     }

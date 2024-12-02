@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import apps.ua.edu.ucu.stamping.Group;
@@ -7,26 +6,16 @@ import apps.ua.edu.ucu.stamping.Signature;
 import apps.ua.edu.ucu.stamping.Task;
 
 public class StampingTest {
-    private Task firstTask;
-    private Task secondTask;
-    private Signature firstSignature;
-    private Signature secondSignature;
+    private final Task firstTask = () -> {
+        System.out.println("Executing First Task");
+    };
+    private final Task secondTask = () -> {
+        System.out.println("Executing Second Task");
+    };
+
+    private final Signature firstSignature = new Signature(firstTask);
+    private final Signature secondSignature = new Signature(secondTask);
     private Group group;
-
-    @BeforeEach
-    public void setUp() {
-        firstTask = () -> {
-            System.out.println("Executing First Task");
-        };
-
-        secondTask = () -> {
-            System.out.println("Executing Second Task");
-        };
-
-        firstSignature = new Signature(firstTask);
-        secondSignature = new Signature(secondTask);
-
-    }
 
 
     @Test
