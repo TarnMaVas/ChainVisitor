@@ -1,10 +1,10 @@
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import apps.ua.edu.ucu.stamping.Group;
 import apps.ua.edu.ucu.stamping.Signature;
 import apps.ua.edu.ucu.stamping.Task;
-
-import org.junit.jupiter.api.Assertions;
 
 public class StampingTest {
     private Task firstTask;
@@ -13,10 +13,8 @@ public class StampingTest {
     private Signature secondSignature;
     private Group group;
 
-
-    @Test
-    public void testAddSignature() {
-
+    @BeforeEach
+    public void setUp() {
         firstTask = () -> {
             System.out.println("Executing First Task");
         };
@@ -27,6 +25,12 @@ public class StampingTest {
 
         firstSignature = new Signature(firstTask);
         secondSignature = new Signature(secondTask);
+
+    }
+
+
+    @Test
+    public void testAddSignature() {
 
         group = new Group();
 
@@ -38,17 +42,6 @@ public class StampingTest {
 
     @Test
     public void testApplyGroup() {
-
-        firstTask = () -> {
-            System.out.println("Executing First Task");
-        };
-
-        secondTask = () -> {
-            System.out.println("Executing Second Task");
-        };
-
-        firstSignature = new Signature(firstTask);
-        secondSignature = new Signature(secondTask);
 
         group = new Group();
 
@@ -65,17 +58,6 @@ public class StampingTest {
 
     @Test
     public void testSignatureInvoke() {
-
-        firstTask = () -> {
-            System.out.println("Executing First Task");
-        };
-
-        secondTask = () -> {
-            System.out.println("Executing Second Task");
-        };
-
-        firstSignature = new Signature(firstTask);
-        secondSignature = new Signature(secondTask);
 
         group = new Group();
 
