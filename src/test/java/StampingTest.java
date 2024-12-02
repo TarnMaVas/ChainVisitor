@@ -5,7 +5,7 @@ import apps.ua.edu.ucu.stamping.Group;
 import apps.ua.edu.ucu.stamping.Signature;
 import apps.ua.edu.ucu.stamping.Task;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Assertions;
 
 public class StampingTest {
     private Task firstTask;
@@ -35,7 +35,7 @@ public class StampingTest {
         group.addSignature(firstSignature);
         group.addSignature(secondSignature);
 
-        assertEquals(2, group.getSignatures().size());
+        Assertions.assertEquals(2, group.getSignatures().size());
     }
 
     @Test
@@ -45,8 +45,8 @@ public class StampingTest {
 
         group.apply();
 
-        assertEquals(group.getGroupId(), firstSignature.getGroupId());
-        assertEquals(group.getGroupId(), secondSignature.getGroupId());
+        Assertions.assertEquals(group.getGroupId(), firstSignature.getGroupId());
+        Assertions.assertEquals(group.getGroupId(), secondSignature.getGroupId());
     }
 
     @Test

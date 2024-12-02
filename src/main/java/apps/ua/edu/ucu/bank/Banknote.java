@@ -1,12 +1,13 @@
 package apps.ua.edu.ucu.bank;
 
+import lombok.Getter;
 import lombok.Setter;
 
 public class Banknote {
 
-    @Setter
-    public Banknote nextItem;
-    public int banknoteNominale;
+    @Setter @Getter
+    private Banknote nextItem;
+    private final int banknoteNominale;
 
     public Banknote(int banknoteNominale) {
         this.banknoteNominale = banknoteNominale;

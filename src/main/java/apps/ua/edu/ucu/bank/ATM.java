@@ -5,6 +5,10 @@ import lombok.Getter;
 public class ATM {
     private final Banknote firstTray;
 
+    static final int FIRST_NOTE = 100;
+    static final int SECOND_NOTE = 50;
+    static final int THIRD_NOTE = 5;
+
     @Getter
     private int budget;
 
@@ -12,18 +16,19 @@ public class ATM {
 
         this.budget = budget;
 
-        firstTray = new Banknote(100);
-        Banknote SecondTray = new Banknote(50);
-        Banknote ThirdTray = new Banknote(5);
+        firstTray = new Banknote(FIRST_NOTE);
+        Banknote secondTray = new Banknote(SECOND_NOTE);
+        Banknote thirdTray = new Banknote(THIRD_NOTE);
         
-        firstTray.setNextItem(SecondTray);
-        SecondTray.setNextItem(ThirdTray);
+        firstTray.setNextItem(secondTray);
+        secondTray.setNextItem(thirdTray);
     }
 
     public void process(int amount) {
 
         if (amount > budget) {
-            throw new IllegalArgumentException("ATM doesn't have enough money");
+            throw new 
+                IllegalArgumentException("ATM doesn't have enough money");
         }
 
         firstTray.process(amount);
