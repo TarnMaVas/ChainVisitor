@@ -13,11 +13,6 @@ public class ATMTest {
 
     private ATM atm;
 
-    @BeforeEach
-    public void setUp() {
-        atm = new ATM(INITIAL_BUDGET);
-    }
-
     @Test
     public void testProcessValidAmount() {
         atm = new ATM(INITIAL_BUDGET);

@@ -14,8 +14,10 @@ public class StampingTest {
     private Signature secondSignature;
     private Group group;
 
-    @BeforeEach
-    public void setUp() {
+
+    @Test
+    public void testAddSignature() {
+
         firstTask = () -> {
             System.out.println("Executing First Task");
         };
@@ -28,10 +30,7 @@ public class StampingTest {
         secondSignature = new Signature(secondTask);
 
         group = new Group();
-    }
 
-    @Test
-    public void testAddSignature() {
         group.addSignature(firstSignature);
         group.addSignature(secondSignature);
 
@@ -40,6 +39,20 @@ public class StampingTest {
 
     @Test
     public void testApplyGroup() {
+
+        firstTask = () -> {
+            System.out.println("Executing First Task");
+        };
+
+        secondTask = () -> {
+            System.out.println("Executing Second Task");
+        };
+
+        firstSignature = new Signature(firstTask);
+        secondSignature = new Signature(secondTask);
+
+        group = new Group();
+
         group.addSignature(firstSignature);
         group.addSignature(secondSignature);
 
@@ -53,6 +66,20 @@ public class StampingTest {
 
     @Test
     public void testSignatureInvoke() {
+
+        firstTask = () -> {
+            System.out.println("Executing First Task");
+        };
+
+        secondTask = () -> {
+            System.out.println("Executing Second Task");
+        };
+
+        firstSignature = new Signature(firstTask);
+        secondSignature = new Signature(secondTask);
+
+        group = new Group();
+
         firstSignature.invoke();
         secondSignature.invoke();
     }
